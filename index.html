@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5f6">
+  <title>Isang Munting Tanong 💌</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: #623d51;
+      background: #fff5f6;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 15% 20%, #ffe1e9 0 8%, transparent 8.5%),
+        radial-gradient(ellipse at 87% 76%, #f8e5ff 0 10%, transparent 10.5%),
+        linear-gradient(145deg, #fff8f1, #fff0f5 55%, #f8f1ff);
+    }
+
+    .sparkle {
+      position: fixed;
+      z-index: 0;
+      color: #e8a3ba;
+      opacity: .65;
+      animation: float 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .sparkle:nth-child(1) { top: 12%; left: 12%; font-size: 2rem; }
+    .sparkle:nth-child(2) { top: 20%; right: 14%; font-size: 1.5rem; animation-delay: -1s; }
+    .sparkle:nth-child(3) { bottom: 15%; left: 17%; font-size: 1.5rem; animation-delay: -2s; }
+    .sparkle:nth-child(4) { right: 12%; bottom: 17%; font-size: 2rem; animation-delay: -3s; }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(90vw, 440px);
+      padding: 2.75rem 2rem 2.5rem;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 32px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 24px 70px rgba(151, 91, 119, .17);
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .illustration {
+      display: grid;
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 1.5rem;
+      place-items: center;
+      border-radius: 38% 62% 57% 43% / 43% 41% 59% 57%;
+      background: #ffe5ec;
+      font-size: 4rem;
+      animation: bob 3s ease-in-out infinite;
+    }
+
+    .eyebrow {
+      margin: 0 0 .7rem;
+      color: #c27998;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: #794a63;
+      font-size: clamp(1.8rem, 7vw, 2.4rem);
+      line-height: 1.2;
+    }
+
+    .message {
+      margin: 1rem auto 1.8rem;
+      max-width: 31ch;
+      color: #886c7b;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+    }
+
+    button {
+      min-width: 132px;
+      padding: .85rem 1.35rem;
+      border: 0;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    button:hover { transform: translateY(-3px); }
+    button:focus-visible { outline: 3px solid #8c5dff; outline-offset: 4px; }
+
+    .yes {
+      color: white;
+      background: linear-gradient(135deg, #f28eaa, #e87598);
+      box-shadow: 0 8px 18px rgba(232, 117, 152, .3);
+    }
+
+    .yes:hover { box-shadow: 0 11px 22px rgba(232, 117, 152, .4); }
+
+    .no {
+      color: #946f80;
+      background: #f7edf1;
+    }
+
+    .no:hover { background: #f1e3e9; }
+
+    .response {
+      min-height: 1.7em;
+      margin: 1.35rem 0 0;
+      color: #a65375;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: fixed;
+      z-index: 2;
+      bottom: -2rem;
+      animation: rise 2.6s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      50% { transform: translateY(-12px) rotate(10deg); }
+    }
+    @keyframes bob {
+      50% { transform: translateY(-7px) rotate(3deg); }
+    }
+    @keyframes rise {
+      to { transform: translateY(-110vh) rotate(25deg); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <span class="sparkle" aria-hidden="true">✦</span>
+  <span class="sparkle" aria-hidden="true">♡</span>
+  <span class="sparkle" aria-hidden="true">✧</span>
+  <span class="sparkle" aria-hidden="true">♡</span>
+
+  <main class="card">
+    <div class="illustration" aria-hidden="true">💌</div>
+    <p class="eyebrow">May itatanong sana ako...</p>
+    <h1>Pwede ba kitang ligawan?</h1>
+    <p class="message">Walang pressure ha. Gusto lang kitang makilala pa nang mas mabuti. 🌷</p>
+    <div class="buttons">
+      <button class="yes" id="yesButton" type="button">Oo naman! 💖</button>
+      <button class="no" id="noButton" type="button">Sorry, hindi 💛</button>
+    </div>
+    <p class="response" id="response" role="status" aria-live="polite"></p>
+  </main>
+
+  <script>
+    const response = document.querySelector("#response");
+
+    document.querySelector("#yesButton").addEventListener("click", () => {
+      response.textContent = "Yay! Salamat sa pagkakataon. Excited na akong makilala ka pa! 🥰";
+      for (let i = 0; i < 18; i += 1) {
+        const heart = document.createElement("span");
+        heart.className = "heart";
+        heart.setAttribute("aria-hidden", "true");
+        heart.textContent = ["💖", "💕", "💗", "✨"][i % 4];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.animationDelay = `${Math.random() * 0.8}s`;
+        heart.style.fontSize = `${1 + Math.random()}rem`;
+        document.body.append(heart);
+        heart.addEventListener("animationend", () => heart.remove(), { once: true });
+      }
+    });
+
+    document.querySelector("#noButton").addEventListener("click", () => {
+      response.textContent = "Okay lang, salamat sa pagiging honest. Sana maging friends pa rin tayo! 🌼";
+    });
+  </script>
+</body>
+</html>
